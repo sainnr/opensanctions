@@ -50,9 +50,9 @@ def store_entity(context, data):
 def directory(context, data):
     """Store the collected files to a given directory."""
     with context.http.rehash(data) as result:
-        if not result.ok:
-            context.log.info("WARN: result not ok")
-            return
+        # if not result.ok:
+        #     context.log.info("WARN: result not ok")
+        #     return
 
         content_hash = data.get('content_hash')
         if content_hash is None:
