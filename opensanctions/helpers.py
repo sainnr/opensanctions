@@ -1,6 +1,9 @@
 # from memorious.operations import db
 from memorious.operations import store
 
+import os
+import json
+import shutil
 
 def store_entity(context, data):
     context.params["unique"] = ["id", "name", "program"]
@@ -40,9 +43,33 @@ def store_entity(context, data):
         },
     ]
     # db(context, data)
-    context.log.info("Attempting to store some stuff")
-    store.directory(context, data)
-    context.log.info("if set: %s", data['_file_name'])
+    directory(context, data)
+
+
+def directory(context, data):
+    """Store the collected files to a given directory."""
+    with context.http.rehash(data) as result:
+        if not result.ok:
+            return
+
+        content_hash = data.get('content_hash')
+        if content_hash is None:
+            context.emit_warning("No content hash in data.")
+            return
+
+        path = "/data"
+        file_name = data.get('file_name', result.file_name)
+        file_name = '%s.%s' % (content_hash, file_name)
+        data['_file_name'] = file_name
+        file_path = os.path.join(path, file_name)
+        if not os.path.exists(file_path):
+            shutil.copyfile(result.file_path, file_path)
+
+        context.log.info("Store a file: %s", file_name)
+
+        meta_path = os.path.join(path, '%s.json' % content_hash)
+        with open(meta_path, 'w') as fh:
+            json.dump(data, fh)
 
 
 def remove_namespace(doc, namespace):
