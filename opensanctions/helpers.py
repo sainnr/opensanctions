@@ -66,9 +66,13 @@ def directory(context, data):
         #     return
 
         context.log.info(result)
+        context.log.info(result.ok)
+        context.log.info(result.file_path)
+        context.log.info(result.file_name)
+        context.log.info(result.raw)
 
         path = "/data/json"
-        file_name = random.randint
+        file_name = random.randint(100000, 1000000)
         # VS: Skipped all tricky namings for resulting files, using just hash of the data entry
         #
         # file_name = data.get('file_name', result.file_name)
