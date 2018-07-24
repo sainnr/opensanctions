@@ -40,7 +40,7 @@ def store_entity(context, data):
         },
     ]
     # db(context, data)
-    store(context, data)
+    store.directory(context, data)
 
 
 def remove_namespace(doc, namespace):
