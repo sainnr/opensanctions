@@ -50,18 +50,24 @@ def store_entity(context, data):
 def directory(context, data):
     """Store the collected files to a given directory."""
     with context.http.rehash(data) as result:
+        # VS: Original code fails at this point, for an unknown reason
+        #
         # if not result.ok:
         #     context.log.info("WARN: result not ok")
         #     return
 
+        # VS: this branch fails as well (if uncommented)
+        #
         # content_hash = data.get('content_hash')
         # if content_hash is None:
         #     context.log.info("WARN: no hash")
         #     context.emit_warning("No content hash in data.")
         #     return
 
-        path = "/data"
-        file_name = "sdfile"
+        path = "/data/json"
+        file_name = hash(data)
+        # VS: Skipped all tricky namings for resulting files, using just hash of the data entry
+        #
         # file_name = data.get('file_name', result.file_name)
         # file_name = '%s.%s' % ("sddata", file_name)
         # data['_file_name'] = file_name
@@ -70,9 +76,9 @@ def directory(context, data):
         #     shutil.copyfile(result.file_path, file_path)
 
         context.log.info("Store in a file:")
-        context.log.info(file_name)
+        # context.log.info(file_name)
 
-        meta_path = os.path.join(path, '%s.json' % "sddata")
+        meta_path = os.path.join(path, '%s.json' % file_name)
         context.log.info(meta_path)
 
         with open(meta_path, 'w') as fh:
