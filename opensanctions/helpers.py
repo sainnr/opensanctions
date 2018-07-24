@@ -61,12 +61,13 @@ def directory(context, data):
         #     return
 
         path = "/data"
-        file_name = data.get('file_name', result.file_name)
-        file_name = '%s.%s' % ("sddata", file_name)
-        data['_file_name'] = file_name
-        file_path = os.path.join(path, file_name)
-        if not os.path.exists(file_path):
-            shutil.copyfile(result.file_path, file_path)
+        file_name = "sdfile"
+        # file_name = data.get('file_name', result.file_name)
+        # file_name = '%s.%s' % ("sddata", file_name)
+        # data['_file_name'] = file_name
+        # file_path = os.path.join(path, file_name)
+        # if not os.path.exists(file_path):
+        #     shutil.copyfile(result.file_path, file_path)
 
         context.log.info("Store in a file:")
         context.log.info(file_name)
