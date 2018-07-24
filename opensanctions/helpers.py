@@ -66,11 +66,15 @@ def directory(context, data):
         if not os.path.exists(file_path):
             shutil.copyfile(result.file_path, file_path)
 
-        context.log.info("Store a file: %s", file_name)
+        context.log.info("Store in a file:")
+        context.log.info(file_name)
 
         meta_path = os.path.join(path, '%s.json' % content_hash)
+        context.log.info(meta_path)
+
         with open(meta_path, 'w') as fh:
             json.dump(data, fh)
+            context.log.info(fh.name)
 
 
 def remove_namespace(doc, namespace):
