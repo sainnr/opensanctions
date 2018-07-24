@@ -11,4 +11,6 @@ pipeline:
     handle:
       pass: store
   store:
-    method: opensanctions.helpers:store_entity
+    method: directory
+    params:
+      path: 'json'
