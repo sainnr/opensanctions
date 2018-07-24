@@ -66,7 +66,7 @@ def directory(context, data):
         #     return
 
         path = "/data/json"
-        file_name = hash(random.randint)
+        file_name = hash(result.url)
         # VS: Skipped all tricky namings for resulting files, using just hash of the data entry
         #
         # file_name = data.get('file_name', result.file_name)
