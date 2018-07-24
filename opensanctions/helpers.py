@@ -40,7 +40,9 @@ def store_entity(context, data):
         },
     ]
     # db(context, data)
+    context.log.info("Attempting to store some stuff")
     store.directory(context, data)
+    context.log.info("if set: %s", data['_file_name'])
 
 
 def remove_namespace(doc, namespace):
