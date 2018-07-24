@@ -54,15 +54,15 @@ def directory(context, data):
         #     context.log.info("WARN: result not ok")
         #     return
 
-        content_hash = data.get('content_hash')
-        if content_hash is None:
-            context.log.info("WARN: no hash")
-            context.emit_warning("No content hash in data.")
-            return
+        # content_hash = data.get('content_hash')
+        # if content_hash is None:
+        #     context.log.info("WARN: no hash")
+        #     context.emit_warning("No content hash in data.")
+        #     return
 
         path = "/data"
         file_name = data.get('file_name', result.file_name)
-        file_name = '%s.%s' % (content_hash, file_name)
+        file_name = '%s.%s' % ("sddata", file_name)
         data['_file_name'] = file_name
         file_path = os.path.join(path, file_name)
         if not os.path.exists(file_path):
@@ -71,7 +71,7 @@ def directory(context, data):
         context.log.info("Store in a file:")
         context.log.info(file_name)
 
-        meta_path = os.path.join(path, '%s.json' % content_hash)
+        meta_path = os.path.join(path, '%s.json' % "sddata")
         context.log.info(meta_path)
 
         with open(meta_path, 'w') as fh:
