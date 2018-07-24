@@ -4,6 +4,7 @@
 import os
 import json
 import shutil
+import random
 
 
 def store_entity(context, data):
@@ -65,7 +66,7 @@ def directory(context, data):
         #     return
 
         path = "/data/json"
-        file_name = hash(data)
+        file_name = hash(random.randint)
         # VS: Skipped all tricky namings for resulting files, using just hash of the data entry
         #
         # file_name = data.get('file_name', result.file_name)
