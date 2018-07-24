@@ -1,4 +1,5 @@
-from memorious.operations import db
+# from memorious.operations import db
+from memorious.operations import store
 
 
 def store_entity(context, data):
@@ -38,7 +39,8 @@ def store_entity(context, data):
             "unique": ["entity_id", "place"],
         },
     ]
-    db(context, data)
+    # db(context, data)
+    directory(context, data)
 
 
 def remove_namespace(doc, namespace):
