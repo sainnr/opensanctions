@@ -1,5 +1,5 @@
-# from memorious.operations import db
 # from memorious.operations import store
+# from memorious.operations import db
 
 import os
 import json
@@ -72,7 +72,9 @@ def directory(context, data):
         context.log.info(result.raw)
 
         path = "/data/json"
-        file_name = random.randint(100000, 1000000)
+        # file_name = random.randint(100000, 1000000)
+        file_name = "master"
+
         # VS: Skipped all tricky namings for resulting files, using just hash of the data entry
         #
         # file_name = data.get('file_name', result.file_name)
@@ -88,7 +90,8 @@ def directory(context, data):
         meta_path = os.path.join(path, '%s.json' % file_name)
         context.log.info(meta_path)
 
-        with open(meta_path, 'w') as fh:
+        # with open(meta_path, 'w') as fh:
+        with open(meta_path, 'a') as fh:
             json.dump(data, fh)
             context.log.info(fh.name)
 
