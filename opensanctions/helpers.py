@@ -93,6 +93,7 @@ def directory(context, data):
         # with open(meta_path, 'w') as fh:
         with open(meta_path, 'a+') as fh:
             json.dump(data, fh)
+            fh.write('\n')
             context.log.info(fh.name)
 
 
