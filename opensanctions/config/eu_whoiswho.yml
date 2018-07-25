@@ -1,6 +1,6 @@
 name: eu_whoiswho
 description: "[OSANC] EU Who is Who Staff Directory"
-schedule: weekly
+schedule: daily
 pipeline:
   init:
     method: opensanctions.crawlers.eu_whoiswho:scrape
