@@ -3,8 +3,9 @@
 
 import os
 import json
-import shutil
-import random
+# import shutil
+# import random
+import datetime
 
 
 def store_entity(context, data):
@@ -73,7 +74,8 @@ def directory(context, data):
 
         path = "/data/json"
         # file_name = random.randint(100000, 1000000)
-        file_name = "master"
+        now = datetime.datetime.now()
+        file_name = now.strftime("master%Y_%m_%d")
 
         # VS: Skipped all tricky namings for resulting files, using just hash of the data entry
         #
