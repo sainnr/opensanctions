@@ -27,5 +27,5 @@ RUN crontab /etc/cron.d/memorious
 RUN touch /var/log/cron.log
 
 # Run the command on container startup
-CMD ["cron", "-f"]
+CMD cron
 

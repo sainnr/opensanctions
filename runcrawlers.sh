@@ -1,3 +1,3 @@
 #!/bin/bash
 echo "Hi there"
-memorious list
+/usr/local/bin/memorious memorious list
