@@ -1,1 +1,2 @@
-* * * * * echo "Hello world" >> /var/log/cron.log 2>&1
+# m h DoM Mon DoW command
+* * * * * /bin/bash /memorious/runcrawlers.sh 1> /var/log/cron.log 2> /var/log/cron.log
