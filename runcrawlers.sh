@@ -5,7 +5,7 @@
 /usr/local/bin/memorious run eu_eeas_sanctions
 /usr/local/bin/memorious run eu_meps
 /usr/local/bin/memorious run eu_whoiswho
-/usr/local/bin/memorious run everypolitician
+# /usr/local/bin/memorious run everypolitician
 /usr/local/bin/memorious run gb_coh_disqualified
 /usr/local/bin/memorious run gb_hmt_sanctions
 /usr/local/bin/memorious run interpol_red_notices
