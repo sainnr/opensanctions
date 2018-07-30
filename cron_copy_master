@@ -1,2 +1,2 @@
 # m h DoM Mon DoW command
-0 18 * * * /bin/bash /home/ec2-user/opensanctions/copy_master.sh >> /var/log/cron.log 2>&1
+0 18 * * * /bin/bash /home/ec2-user/opensanctions/copy_master.sh
