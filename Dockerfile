@@ -13,7 +13,7 @@ ENV MEMORIOUS_CONFIG_PATH=/opensanctions/opensanctions/config \
 RUN apt-get update && apt-get -y install -qq --force-yes cron
 
 # Add crontab file & shell script in the cron directory
-ADD crontab /etc/cron.d/memorious
+ADD cron_crawlers /etc/cron.d/memorious
 ADD runcrawlers.sh /memorious/runcrawlers.sh
 
 # Give execution rights on the cron job
