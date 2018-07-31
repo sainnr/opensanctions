@@ -8,5 +8,5 @@ build:
 	docker build -t alephdata/opensanctions .
 
 run: build
-	docker run -v $(DATA_DIR):/data --name opensanctions alephdata/opensanctions
+	docker run -d -v $(DATA_DIR):/data --name opensanctions alephdata/opensanctions
 	docker exec -it opensanctions /bin/bash
