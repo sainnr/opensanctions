@@ -66,11 +66,11 @@ def directory(context, data):
         #     context.emit_warning("No content hash in data.")
         #     return
 
-        context.log.info(result)
-        context.log.info(result.ok)
-        context.log.info(result.file_path)
-        context.log.info(result.file_name)
-        context.log.info(result.raw)
+        # context.log.info(result)
+        # context.log.info(result.ok)
+        # context.log.info(result.file_path)
+        # context.log.info(result.file_name)
+        # context.log.info(result.raw)
 
         path = "/data/json"
         # file_name = random.randint(100000, 1000000)
@@ -86,17 +86,17 @@ def directory(context, data):
         # if not os.path.exists(file_path):
         #     shutil.copyfile(result.file_path, file_path)
 
-        context.log.info("Store in a file:")
+        # context.log.info("Store in a file:")
         # context.log.info(file_name)
 
         meta_path = os.path.join(path, '%s.json' % file_name)
-        context.log.info(meta_path)
+        # context.log.info(meta_path)
 
         # with open(meta_path, 'w') as fh:
         with open(meta_path, 'a+') as fh:
             json.dump(data, fh)
             fh.write('\n')
-            context.log.info(fh.name)
+            # context.log.info(fh.name)
 
 
 def remove_namespace(doc, namespace):
