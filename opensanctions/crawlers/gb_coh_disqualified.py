@@ -6,7 +6,7 @@ from opensanctions.models import Entity
 
 
 API_KEY = os.environ["MEMORIOUS_COH_API_KEY"]
-AUTH = (API_KEY, '')
+AUTH = (API_KEY, 'ca4ioU9Un4fllwZLsdzQuVf2cCxkhz_macT1pnwX')
 SEARCH_URL = 'https://api.companieshouse.gov.uk/search/disqualified-officers'
 API_URL = 'https://api.companieshouse.gov.uk/disqualified-officers/%s/%s'
 WEB_URL = 'https://beta.companieshouse.gov.uk/register-of-disqualifications/A'
